@@ -21,13 +21,47 @@ App to help you find your career choice
 Known Issues:
 -->
 
-   <head> 		<!--contains info like title, scripts, style sheets-->
+<head> 		<!--contains info like title, scripts, style sheets-->
       <title>Hello World</title>  
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
       <link rel="stylesheet" href="w3-colors-flat.css">
-   </head>
+</head>
+	
+<script>		//contains variables and functions to keep track of allergy and cold symptom counts
+        var princess_count = 0; //variable to keep track of traits of princess
+        var doctor_count = 0; //variable to keep track of traits of doctor
+	var engineer_count = 0; //variable to keep track of traits of engineer
+	var teacher_count = 0; //variable to keep track of traits of teacher
+
+
+        function princessAdd(){ 		//function that updates number of times user has chosen trait of princess
+            princess_count = princess_count + 1; 
+        }
+
+        function doctorAdd(){ 		//function that updates number of times user has chosen trait of doctor
+            doctor_count = doctor_count + 1;
+        }
+	
+	function engineerAdd(){ 		//function that updates number of times user has chosen trait of engineer
+            engineer_count = engineer_count + 1;
+        }
+	
+	function teacherAdd(){ 		//function that updates number of times user has chosen trait of teacher
+            teacher_count = teacher_count + 1;
+        }
+	
+	function display_results(){  	//function that shows the results of user's choices
+		var resultText = document.getElementById("results1");	//returns an element with a specified value, references the id="result1" in results page code
+		var princessPercent = 100*(princess_count/(princess_count+doctor_count+engineer_count+teacher_count));	//calculating percent of choices that indicate allergy
+		var doctorPercent = 100*(doctor_count/(princess_count+doctor_count+engineer_count+teacher_count));		//calculating percent of choices that indicate cold
+		var engineerPercent = 100*(engineer_count/(princess_count+doctor_count+engineer_count+teacher_count));
+		var teacherPercent = 100*(teacher_count/(princess_count+doctor_count+engineer_count+teacher_count));
+		resultText.innerHTML = "Probability it is allergies =" + allergyPercent + "<br> Probability it is a cold =" + coldPercent;	//displays results with text and probability of allergy or cold
+	}
+
+ </script>
 	
 <style>		//defines style information
 .body {
@@ -51,6 +85,117 @@ Known Issues:
 }
 </style>
 	   
-<body>   
+<body>  
+	<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Find your Dream Career!</h1> 	<!--start page heading-->
+</div>
+	
+<div id="content" class="w3-container">
+	<p>Are you feeling gloomy about your future? Answer a few short questions to determine your fate!</p>	<!--text on start page-->
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>	<!--button to get started-->
+	
+	<p>The following code has been developed by Liana! This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE YOUR FATE.</p> 		<!--more text-->
+
+<!-- __________________________________________PAGE 1____________________________________________________-->
+<div class="page" id="one"> 	<!--specifies code as a page with id of one-->
+	<div id="header" class="w3-container w3-flat-carrot">	<!--page header-->
+		<h1>Question 1</h1> <!--question 1 heading-->
+	</div>
+	
+    	<div id="content" class="w3-container">
+        	<p>Do you enjoy helping people?</p> <!--question 1-->
+			<a href="#two" onclick = "doctorAdd()" class="w3-btn w3-black"> Yes</a> <!--yes button for q1, references pg 2-->
+			<a href="#two" onclick = "princessAdd()" class="w3-btn w3-black">No</a>	<!--no button for q1, references pg 2-->
+    	</div>
+</div>
+
+<!-- __________________________________________PAGE 2____________________________________________________-->
+
+<div class="page" id="two">	<!--specifies code as a page with id of two-->
+	<div class="w3-container w3-flat-carrot">	<!--page header-->
+		<h1>Question 2</h1>	<!--question 2 heading-->
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do you enjoy working with your hands?</p>	<!--question 2-->
+			<a href="#three" onclick = "engineerAdd()" class="w3-btn w3-black"> Yes</a>		<!--yes button for q2, references pg 3-->
+			<a href="#three" onclick = "princessAdd()" class="w3-btn w3-black">No</a>	<!--no button for q2, references pg 3-->
+	</div>
+</div>	
+
+<!-- __________________________________________PAGE 3____________________________________________________-->
+
+<div class="page" id="three">	<!--specifies code as a page with id of three-->
+	<div class="w3-container w3-flat-carrot">	<!--page header-->
+		<h1>Question 3</h1>	<!--question 3 heading-->
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Are you curious about medicine?</p>	<!--question 3-->
+			<a href="#four" onclick = "doctorAdd()" class="w3-btn w3-black"> Yes</a> 		<!--yes button for q3, references pg 4-->
+			<a href="#four" onclick = "princessAdd()" class="w3-btn w3-black">No</a> 	<!--no button for q3, references pg 4-->
+	</div>
+</div>
+
+<!-- __________________________________________PAGE 4____________________________________________________-->
+
+<div class="page" id="four">		<!--specifies code as a page with id of four-->
+	<div class="w3-container w3-flat-carrot">	<!--page header-->
+		<h1>Question 4</h1>	<!--question 4 heading-->
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do you enjoy helping others learn?</p>		<!--question 4-->
+			<a href="#five" onclick = "teacherAdd()" class="w3-btn w3-black"> Yes</a>	<!--yes button for q4, references pg 5-->
+			<a href="#five" onclick = "princessAdd()" class="w3-btn w3-black">No</a>		<!--no button for q4, references pg 5-->
+	</div>
+</div>
+	
+<!-- __________________________________________PAGE 5____________________________________________________-->
+
+<div class="page" id="five">		<!--specifies code as a page with id of five-->
+	<div class="w3-container w3-flat-carrot">	<!--page header-->
+		<h1>Question 5</h1>	<!--question 5 heading-->
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do you rule your kingdom with an iron fist?</p>	<!--question 5-->
+			<a href="#six" onclick = "princessAdd()" class="w3-btn w3-black"> Yes</a>		<!--yes button for q5, references pg 6-->
+			<a href="#six" onclick = "teacherAdd()" class="w3-btn w3-black">No</a>		<!--no button for q5, references pg 6-->
+	</div>
+</div>
+
+<!-- __________________________________________PAGE 6____________________________________________________-->
+
+<div class="page" id="six">		<!--specifies code as a page with id of six-->
+	<div class="w3-container w3-flat-carrot">	<!--page header-->
+		<h1>Question 6</h1>		<!--question 6 heading-->
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Would you describe yourself as caring?</p>		<!--question 6-->
+			<a href="#results" onclick = "teacherAdd()" class="w3-btn w3-black"> Yes</a>	<!--yes button for q6, references pg results-->
+			<a href="#results" onclick = "princessAdd()" class="w3-btn w3-black">No</a>		<!--no button for q6, references pg results-->
+	</div>
+</div>
+
+<!-- __________________________________________RESULTS PAGE____________________________________________________-->	
+
+<div class="page" id="results">		<!--specifies code as a page with id of results-->
+	<div class="w3-container w3-flat-carrot">	<!--page header-->
+		<h1>Results!</h1>	<!--results page heading-->
+	</div>
+	<div id="content" class="w3-container">
+		<p id="results1"></p>		 <!--specifies a unique id for an element, this is modified in the JS code and results are displayed here-->
+			<a onclick = "display_results();" class="w3-btn w3-black"> Results</a>		<!--results button to display results-->
+	</div>
+</div>
+	
+<footer class="w3-bottom w3-container w3-flat-carrot">			<!--footer-->
+	<p>DIY!</p>		<!--text on footer-->
+</footer>
 </body>
 </html>
