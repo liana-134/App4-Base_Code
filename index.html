@@ -58,7 +58,7 @@ Known Issues:
 		var doctorPercent = 100*(doctor_count/(princess_count+doctor_count+engineer_count+teacher_count));		//calculating percent of choices that indicate cold
 		var engineerPercent = 100*(engineer_count/(princess_count+doctor_count+engineer_count+teacher_count));
 		var teacherPercent = 100*(teacher_count/(princess_count+doctor_count+engineer_count+teacher_count));
-		resultText.innerHTML = "Probability it is allergies =" + allergyPercent + "<br> Probability it is a cold =" + coldPercent;	//displays results with text and probability of allergy or cold
+		resultText.innerHTML = "Your choices indicate a =" + doctorPercent + "of being a princess" + "<br> Probability it is a cold =" + engineerPercent + "<br> Probability teacher =" + teacherPercent + "<br> Probability princess =" + princessPercent;	//displays results with text and probability of allergy or cold
 	}
 
  </script>
